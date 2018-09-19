@@ -1,6 +1,6 @@
 import { Button, Card, TextField } from '@material-ui/core'
-import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
 export default class AddTask extends Component {
 
@@ -27,7 +27,7 @@ export default class AddTask extends Component {
   render () {
     return (
       <Card>
-        <div>
+        <div className={ 'add-task-container' }>
           <TextField
             id="standard-note"
             label="Task name"
@@ -36,12 +36,14 @@ export default class AddTask extends Component {
             margin="normal"
           />
         </div>
-        <Button size="small" onClick={ this.handleAdd }>Add</Button>
+        <Button
+          disabled={ this.state.name.length === 0 }
+          size="small"
+          onClick={ this.handleAdd }>Add</Button>
       </Card>
     )
   }
 }
-
 AddTask.propTypes = {
   onAdd: PropTypes.func.isRequired
 }

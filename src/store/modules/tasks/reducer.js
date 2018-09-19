@@ -23,6 +23,8 @@ export default function reducer (state = initialState, action) {
           return task
         })
       }
+    default: {
+        return state
+      }
   }
-  return state
 }
