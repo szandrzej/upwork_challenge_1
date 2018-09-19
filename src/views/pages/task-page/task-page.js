@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import AddTask from '../../components/add-task/add-task'
+import Task from '../../components/task/task'
 
 class TaskPage extends Component {
 
@@ -7,7 +9,15 @@ class TaskPage extends Component {
     const { tasks } = this.props
 
     return (
-      <div>123</div>
+      <React.Fragment>
+        <Task
+          task={ { name: '123' } }
+          onComplete={ () => {} }
+          onPause={ () => {} }
+          onStart={ () => {} }
+        />
+        <AddTask/>
+      </React.Fragment>
     )
   }
 }

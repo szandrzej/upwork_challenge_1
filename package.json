@@ -10,7 +10,8 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "prop-types": "latest"
   },
   "scripts": {
     "test": "react-scripts test --env=jsdom",
@@ -21,5 +22,10 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js"
+  },
+  "devDependencies": {
+    "eslint-plugin-flowtype": "^2.50.1",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1"
   }
 }
