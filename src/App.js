@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import './App.css'
 import logo from './logo.svg'
 import store from './store/store'
+import TaskPage from './views/pages/task-page/task-page'
 
 class App extends Component {
   render () {
@@ -13,7 +14,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Provider store={ store }>
-
+          <TaskPage/>
         </Provider>
       </div>
     )
