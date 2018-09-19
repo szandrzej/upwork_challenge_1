@@ -37,14 +37,14 @@ export default class Task extends Component {
     let time
     if (task.start) {
       time = moment(task.start).startOf('day')
-        .millisecond(moment(task.isFinished ? task.finish : Date.now()).diff( task.start))
+        .millisecond(moment(task.isFinished ? task.finish : Date.now()).diff(task.start))
     }
 
     return (
       <Card className={ 'task' }>
         <div className={ 'container' }>
-          <h2 className={'title'}>
-          { task.name }
+          <h2 className={ 'title' }>
+            { task.name }
           </h2>
         </div>
         <Divider/>
@@ -53,25 +53,29 @@ export default class Task extends Component {
             <p className={ 'note' } key={ `note-key-${index}` }>{ note }</p>
           )) }
           { !task.isFinished && (
-            <div className={'new-note-container'}>
+            <div className={ 'new-note-container' }>
               <TextField
                 id="standard-note"
                 label="Note"
                 value={ this.state.note }
                 onChange={ this.handleChange }
                 margin="normal"
-                className={'input'}
+                className={ 'input' }
               />
-              <Button size="small" className={'button'} onClick={ this.handleAdd }>Add</Button>
+              <Button
+                disabled={ this.state.note.length === 0 }
+                size="small"
+                className={ 'button' }
+                onClick={ this.handleAdd }>Add</Button>
             </div>
-          )}
+          ) }
         </div>
         {
           task.start && (
             <div>
               <Divider/>
               <div className={ 'time-container' }>
-                <Moment className={task.isFinished ? 'time__off' : 'time__on'} format="HH:mm:ss" interval={ 1000 }>
+                <Moment className={ task.isFinished ? 'time__off' : 'time__on' } format="HH:mm:ss" interval={ 1000 }>
                   { time }
                 </Moment>
               </div>
@@ -81,13 +85,13 @@ export default class Task extends Component {
         <Divider/>
         <div className={ 'action-container' }>
           { !task.isFinished && (
-            <Button color={ 'secondary' } size="small" onClick={ onComplete }>Complete</Button>
+            <Button color={ 'secondary' } size="small" onClick={ onComplete }>Finish</Button>
           ) }
           { !task.start && (
             <Button color={ 'primary' } size="small" onClick={ onStart }>Start</Button>
           ) }
           { task.isFinished && (
-            <Button disabled={true} size="small">Finished</Button>
+            <Button disabled={ true } size="small">Completed</Button>
           ) }
         </div>
       </Card>
