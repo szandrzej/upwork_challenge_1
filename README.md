@@ -11,3 +11,5 @@ Thank you for your interest in helping us on this project. We have a little chal
 `npm install` - install deps
 
 `npm run start` - run app on http://localhost:3000
+
+https://github.com/szandrzej/upwork_challenge_1
